@@ -1,7 +1,5 @@
 # 1 FIUBA
 
-## Enunciado
-
 Diseñar e implementar un sistema que permita contabilizar las materias aprobadas de un plan de estudios de FIUBA.
 
 Cada materia de FIUBA tiene un código, un nombre y una cantidad de créditos, y puede ser obligatoria u optativa.
