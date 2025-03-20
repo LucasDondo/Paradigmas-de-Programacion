@@ -18,26 +18,30 @@ El sistema ofrece sus servicios a múltiples usuarios. Cada usuario puede cursar
 class Faculty {
     createDegree() : void
     signInOrUp() : int
+    showDegrees() : void
 }
 
 class Student {
     id : int
 
-    enrollToDegree() : void
+    enrollOnDegree() : void
     markCourseAsApproved() : void
+    showProgress() :  void
 }
 
 class Degree {
     id : String
     name : String
-    minOptionalCredits : Int
+    minOptionalCredits : int
+
+    addCourses() : void
 }
 
 class Course {
     id : String
     name : String
-    credits : Int
-    obligatory : Bool
+    credits : int
+    obligatory : boolean
 }
 
 Faculty *--> "*" Student
@@ -53,3 +57,13 @@ Degree  o--> "*" Course
 
 - [ ] La unión entre un curso y una carrera debería ser de composición cuando esa es la única carrera que tiene ese curso, y de agregación cuando más de una carrera tiene ese curso.
 - [ ] Hacer que las entradas del usuario se muestren en la misma línea que la pregunta/el pedido que se le está haciendo.
+- [x] Todo lo que se meneja por IDs podría ser manejado con instancias, sin necesitar al ID como intermediario.
+- [ ] Al mostrar los cursos para marcar como aprobados, mostrar primero los obligatorios y luego los optativos.
+- [x] Al mostrar las carreras a las que el usuario se puede inscribir, no mostrar las que el usuario ya está haciendo.
+- [ ] Permitir al usuario darse de baja de una carrera.
+- [ ] Permitir al usuario re-inscribirse a una carrera (y recuperar el progreso).
+- [ ] Permitir al usuario des-marcar como aprobada una materia.
+- [ ] Mejorar el manejo de entradas no deseadas.
+- [ ] Si no quedan carreras a las que inscribirse... O no debería aparecer la opción, o por lo menos se debería mostrarse distinto el escenario cuando se entra a esa opción.
+- [x] Replace `Integer` with `int` where possible.
+- [x] Remove all unnecessary `this`.

@@ -1,43 +1,64 @@
 package fiuba;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Faculty {
     private final HashMap<String, Degree> degrees;
-    public final HashMap<Integer, Student> students;
-    private Integer loggedInStudentID;
+    public final Map<Integer, Student> students;
+    private Student loggedInStudent;
 
     public Faculty(){
-        this.degrees = new HashMap<>();
-        this.students = new HashMap<>();
+        degrees = new HashMap<>();
+        students = new HashMap<>();
     }
 
     public void createDegree(String id, String name, int minOptionalCredits){
-        this.degrees.put(id, new Degree(id, name, minOptionalCredits));
+        degrees.put(id, new Degree(id, name, minOptionalCredits));
     }
 
     public void addCourses(String degreeID, Course... coursesToAdd){
-        Degree degree = this.degrees.get(degreeID);
+        Degree degree = degrees.get(degreeID);
         degree.addCourses(coursesToAdd);
-        this.degrees.replace(degreeID, degree);
+        degrees.replace(degreeID, degree);
     }
 
     public void signInOrUp(){
         System.out.println("Enter your student ID:");
         String inputID = System.console().readLine();
-        Integer id = Integer.valueOf(inputID);
-        this.students.putIfAbsent(id, new Student(id));
-        this.loggedInStudentID = id;
+        int id = Integer.parseInt(inputID);
+        students.computeIfAbsent(id, Student::new);
+        loggedInStudent = students.get(id);
+        if (loggedInStudent.degrees.isEmpty()){
+            this.enrollOnDegree();
+        } else {
+            loggedInStudent.showProgress();
+        }
     }
 
-    public void markCourseAsApproved(String id){
-        Student student = this.students.get(loggedInStudentID);
-        student.markCourseAsApproved(id);
-        this.students.replace(loggedInStudentID, student);
+    public void enrollOnDegree(){
+        this.showDegrees();
+
+        System.out.println("\nEnter the degree ID you want to enroll in:");
+        String degreeID = System.console().readLine();
+
+        loggedInStudent.enrollOnDegree(degrees.get(degreeID));
+    }
+
+    public void showDegrees(){
+        System.out.println("\nDegrees available:");
+        degrees.forEach((id, degree)->{
+            if (!loggedInStudent.degrees.containsKey(id)){
+                System.out.println(degree);
+            }
+        });
+    }
+
+    public void markCourseAsApproved(){
+        loggedInStudent.markCourseAsApproved();
     }
 
     public void showProgress(){
-        Student student = this.students.get(loggedInStudentID);
-        student.showProgress();
+        loggedInStudent.showProgress();
     }
 }

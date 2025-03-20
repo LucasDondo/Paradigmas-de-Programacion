@@ -12,4 +12,9 @@ public class Course {
         this.credits = credits;
         this.obligatory = obligatory;
     }
+
+    @Override
+    public String toString(){
+        return id + " | " + credits + " credits | " + (obligatory ? "Obligatory | " : "Optional   | ") + name;
+    }
 }
