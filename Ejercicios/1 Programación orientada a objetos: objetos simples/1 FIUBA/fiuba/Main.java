@@ -3,7 +3,6 @@ package fiuba;
 public class Main { 
     public static void main(String[] args) {
         Faculty fiuba = initialization();
-
         clearScreen();
         fiuba.signInOrUp();
         
@@ -50,10 +49,10 @@ public class Main {
             new Course("95.48", "Lenguajes Formales", 6, false)
             );
             
-            return fiuba;
-        }
+        return fiuba;
+    }
     
-        public static void clearScreen() {
+    public static void clearScreen() {
         System.out.print("\033c");
     }
 
