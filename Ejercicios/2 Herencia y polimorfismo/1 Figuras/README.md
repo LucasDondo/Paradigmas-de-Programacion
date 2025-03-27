@@ -20,17 +20,17 @@ public class Main {
 }
 ```
 
-###### 1 ¿`Figura` debe ser una clase, una clase abstracta o una interfaz?
+## 1 ¿`Figura` debe ser una clase, una clase abstracta o una interfaz?
 
-Figura no debe ser una clase no abstracta, pues no tendría sentido instanciar `Figura` sin saber de qué tipo de figura estamos hablando.
+`Figura` no debe ser una clase no abstracta, pues no tendría sentido instanciar `Figura` sin saber de qué tipo de figura estamos hablando.
 
-Figura debe ser una interfaz, pues no tendría sentido que contenga implementaciones universales de métodos para que hereden todas sus subclases (como podría ocurrir si fuese una clase/clase abstracta).
+`Figura` podría ser tanto una interfaz como una clase abstracta. Ahora bien, yo prefiero interfaz, pues no veo sentido que contenga implementaciones universales de métodos para que hereden todas sus subclases (como podría ocurrir si fuese una clase/clase abstracta).
 
-###### 2 ¿Dónde hay comportamiento polimórfico? ¿De qué tipo es?
+## 2 ¿Dónde hay comportamiento polimórfico? ¿De qué tipo es?
 
-Hay comportamiento polimórfico por herencia en clas clases que implementan la interfaz `Figura`.
+Hay comportamiento polimórfico por herencia en las clases que implementan la interfaz `Figura`.
 
-###### 3 Dibujar el diagrama de clases
+## 3 Dibujar el diagrama de clases
 
 ```plantuml
 
@@ -46,7 +46,4 @@ Figura <|.. Círculo
 Figura <|.. Rectángulo
 Rectángulo <|-- Cuadrado
 
-
 ```
-
-###### 4 Implementar
