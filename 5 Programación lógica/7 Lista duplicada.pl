@@ -1,0 +1,1 @@
+isListDuplicated(L) :- append(X, X, L).
