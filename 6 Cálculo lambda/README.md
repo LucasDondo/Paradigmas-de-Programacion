@@ -6,7 +6,7 @@ Escribir las siguientes expresiones con el menor número de paréntesis posible:
 
 ### 1.1
 
-```
+```MD
 (λx.(λy.(λz.((x z) (y z)))))
 λx.(λy.(λz.((x z) (y z))))
 λxyz.x z (y z)
@@ -14,7 +14,7 @@ Escribir las siguientes expresiones con el menor número de paréntesis posible:
 
 ### 1.2
 
-```
+```MD
 (((a b) (c d)) ((e f) (g h)))
 ((a b) (c d)) ((e f) (g h))
 (a b) (c d) ((e f) (g h))
@@ -24,7 +24,7 @@ a b (c d) (e f (g h))
 
 ### 1.3
 
-```
+```MD
 (λx.((λy.(y x)) (λv.v) z) u) (λw.w)
 (λx.((λy.(y x)) (λv.v) z) u) λw.w
 (λx.(λy.(y x)) (λv.v) z u) λw.w
@@ -37,7 +37,7 @@ Para las siguientes expresiones lambda: identificar las ocurrencias de variables
 
 ### 3.1
 
-```
+```MD
 Using normal order:
 (λx.(λy.y) x) z
 (λy.y) z        Beta.
@@ -51,7 +51,7 @@ z                 Beta
 
 ### 3.2
 
-```
+```MD
 Using normal order:
 (λxy.x y) (z y)
 (λxw.x w) (z y) Alpha.
@@ -67,7 +67,7 @@ z y             Etha.
 
 ### 3.3
 
-```
+```MD
 Using normal order:
 (λxy.x) x y
 (λy.x) y    Beta.
@@ -81,7 +81,7 @@ x           Beta.
 
 ### 3.4
 
-```
+```MD
 Using normal order:
 (λx.((λz.z x) (λx.x))) y
 (λz.z y) λx.x            Beta.
@@ -98,7 +98,7 @@ y                        Beta.
 
 ### 3.5
 
-```
+```MD
 Using normal order:
 (λx.(λy.x y) z) (λx.x y)
 (λy.(λx.x y) y) z        Beta
@@ -114,7 +114,7 @@ z y                      Beta.
 
 ### 3.6
 
-```
+```MD
 Using normal order:
 (λy.(λx.((λxy.x) x)) y) w z
 (λx.((λxy.x) x)) w z        # Beta.
@@ -130,7 +130,7 @@ w                           Beta.
 
 ### 3.7
 
-```
+```MD
 Using normal order:
 (λxyx.x y z) (λxy.y) a b
 (λyx.x y z) a b          Beta.
@@ -145,7 +145,7 @@ b a z                    Beta.
 
 ### 3.8
 
-```
+```MD
 Using normal order:
 (λx.(λyz.z) x) ((λx.x x x) λx.x x x) x
 (λyz.z) ((λx.x x x) λx.x x x) x        Beta.
